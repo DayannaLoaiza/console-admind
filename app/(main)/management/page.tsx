@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getOrders } from "@/lib/actions";
 import CreateOrder from "@/ui/main/CreateOrder";
 import { InvoicesTableSkeleton } from "@/ui/main/Skeletons";

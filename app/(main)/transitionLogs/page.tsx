@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { getTransitionLogs } from "@/lib/actions";
 import { InvoicesTableSkeleton } from "@/ui/main/Skeletons";
 import TableTransitionLogs from "@/ui/transitionLogs/TableTransitionLogs";
