@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Console Admind
 
-## Getting Started
+Este proyecto utiliza Next.js como framework de desarrollo y MongoDB como base de datos. Sigue estos pasos para configurar el entorno y ejecutar el proyecto en tu máquina local.
 
-First, run the development server:
+## Requisitos previos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js: Asegúrate de tener Node.js instalado en tu máquina. Puedes verificar la instalación ejecutando node -v y npm -v.
+- MongoDB: Este proyecto se conecta a una base de datos MongoDB, asegúrate de tener acceso a una base de datos de MongoDB o de tener MongoDB Atlas configurado.
+
+## Instalación
+
+Clona este repositorio en tu máquina local:
+
+```sh
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_PROYECTO>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ejecuta el siguiente comando para instalar todas las dependencias del proyecto::
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Configuración del entorno
 
-## Learn More
+Para la conexión a la base de datos, es necesario configurar las variables de entorno. A continuación, se detalla cómo hacerlo.
 
-To learn more about Next.js, take a look at the following resources:
+- En la raíz del proyecto, crea un archivo llamado .env.
+- Dentro del archivo .env, agrega la siguiente línea, reemplazando <TU_URL_DE_MONGODB> con la URL de conexión de tu base de datos MongoDB:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+MONGODB_URL=<TU_URL_DE_MONGODB>
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura de la base de datos
 
-## Deploy on Vercel
+Este proyecto utiliza dos colecciones en MongoDB:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Orders: Colección principal para gestionar los pedidos.
+- TransitionLogs: Colección para registrar los cambios de estado de los pedidos.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Nota: Asegúrate de que estas colecciones existan en tu base de datos y de que tu usuario de MongoDB tenga los permisos adecuados para leer y escribir en ellas.
+
+## Ejecución en modo local
+
+Una vez configurado el archivo .env y la conexión a la base de datos, puedes ejecutar el proyecto en modo de desarrollo.
+
+```sh
+npm run dev
+```
+
+## Rutas disponibles
+
+- /management: Ruta principal para gestionar los pedidos.
+- /transitionLogs: Ruta para visualizar los registros de cambios de estado de los pedidos.
+
+Estas rutas están disponibles en el entorno local (http://localhost:3000/management y http://localhost:3000/transitionLogs).
